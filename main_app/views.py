@@ -6,6 +6,13 @@ from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Task
 
+
+def  home(request): 
+    return render(request, 'home.html')
+
+def  about(request): 
+    return render(request, 'about.html')
+
 class TaskList(ListView): 
     model = Task
     context_object_name = 'tasks'

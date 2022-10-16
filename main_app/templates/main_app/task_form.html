@@ -1,3 +1,10 @@
+{% block title %}
+Add Task | Get It Done!
+{% endblock %}
+
+{% block content %}
+
+
 <h1>Task Form</h1>
 
 <a href="{% url 'tasks' %}">Back</a>
@@ -7,3 +14,5 @@
     {{form.as_p}}
     <input type="submit" value="Add">
 </form>
+
+{% endblock %}
