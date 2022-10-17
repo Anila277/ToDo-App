@@ -34,9 +34,11 @@
                     </li>
                 </ul>
                 <ul class="right">
-                    <li><a href="{% url 'about' %}">About</a></li>
+                    {% if request.user.is_authenticated %}
                     <li><a href="{% url 'tasks' %}">Tasks</a></li>
                     <li><a href="{% url 'task-create' %}">Add New Task</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -47,6 +49,8 @@
     </main>
     <footer class="page-footer">
         <div class="right">
+            <a href="{% url 'about' %}">About</a>
+
             All Rights Reserved, © 2022 ToDo-App
         </div>
     </footer>

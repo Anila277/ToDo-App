@@ -5,6 +5,8 @@ Tasks List | Get It Done!
 {% endblock %}
 
 {% block content %}
+
+<p>{{request.user}}</p>
 <h1> My To Do List </h1>
 
 <a href="{% url 'task-create' %}">Add New Task</a>
