@@ -17,10 +17,6 @@ def home(request):
 def about(request): 
     return render(request, 'about.html')
 
-@login_required
-def tasks(request):
-    task = Task.objects.filter(user=request.user)
-    return render(request, 'task_list.html', {'task': task})
 
 def signup(request):
     error_message = None
@@ -41,9 +37,7 @@ class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tasks'] = context['tasks'].filter(user=self.request.user)
+    def get_context_data(self):
         context = super().get_context_data()
         search_input = self.request.GET.get('Search-Area') or ''
         if search_input:
@@ -52,6 +46,12 @@ class TaskList(LoginRequiredMixin, ListView):
         context['search_input'] = search_input
         
         return context
+
+
+    def get(self, request):
+        self.object_list = self.get_queryset().filter(user=self.request.user)
+        context = self.get_context_data()
+        return self.render_to_response(context)
 
 
 
