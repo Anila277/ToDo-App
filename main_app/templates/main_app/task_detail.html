@@ -1,7 +1,11 @@
-<!-- {% block title %}
-Task Detail | Get It Done!
-{% endblock %} -->
+{% extends 'base.html' %}
 
+{% block title %}
+Task Detail | Get It Done!
+{% endblock %}
+
+
+{% block content %}
 
 <a href="{% url 'tasks' %}">Go Back</a>
 
@@ -15,3 +19,5 @@ Task Detail | Get It Done!
 
 <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
 <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+
+{% endblock %}
