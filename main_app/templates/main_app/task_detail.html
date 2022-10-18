@@ -1,1 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Task Detail | Get It Done!
+{% endblock %}
+
+
+{% block content %}
+
+<a href="{% url 'tasks' %}">Go Back</a>
+
+
 <h1>Task Details: {{task}} </h1>
+<h2>Priority: {{task.get_priority_display}}</h2>
+<h3>Description: {{task.description}}</h3>
+<h4>Completed: {{task.complete}}</h4>
+<h4>Created: {{task.created}} </h4>
+
+
+<td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+<td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+
+{% endblock %}

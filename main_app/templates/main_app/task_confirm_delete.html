@@ -1,4 +1,15 @@
-<a href="{% url 'tasks' %}">Back</a>
+{% extends 'base.html' %}
+
+
+
+
+{% block title %}
+Confirm_Delete | Get It Done!
+{% endblock %}
+
+
+{% block content %}
+
 
 <form method="POST">
 
@@ -10,3 +21,5 @@
     </button>
 
 </form>
+
+{% endblock %}
