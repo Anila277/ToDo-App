@@ -11,49 +11,64 @@
         {% block title %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" /> -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 
 </head>
 
 <body>
-    <header class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <ul>
-                    <li>
-                        <a href="{% url 'home' %}" class="left brand-logo">Get It Done</a>
-                    </li>
-                </ul>
-                <ul class="right">
-                    {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'tasks' %}">Tasks</a></li>
-                    <li><a href="{% url 'task-create' %}">Add New Task</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer class="page-footer">
-        <div class="right">
-            <a href="{% url 'about' %}">About</a>
+    <div class="container">
+        <header>
+            <nav>
+                <div>
 
-            All Rights Reserved, © 2022 ToDo-App
-        </div>
-    </footer>
+                    <ul>
+                        <li>
+                            <a href="{% url 'home' %}" class="left brand-logo">Get It Done!</a>
+                        </li>
+                    </ul>
+
+                    <div class="left header-bar">
+                        <ul class="about">
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            {% if request.user.is_authenticated %}
+                            <li><a href="{% url 'tasks' %}">Tasks</a></li>
+                            <li><a href="{% url 'task-create' %}">Add New Task</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+
+        </main>
+        <footer class="page-footer">
+            <div class="right">
+
+
+                <h5>All Rights Reserved, © 2022 ToDo-App</h5>
+            </div>
+        </footer>
+    </div>
 </body>
+
+
 
 </html>

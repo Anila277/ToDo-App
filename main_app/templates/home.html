@@ -5,11 +5,13 @@ Home | Get It Done!
 {% endblock %}
 
 {% block content %}
-<h1>Welcome to YOUR next success!</h1>
-<a href="{% url 'login' %}">Login</a>
-<h1>New Here?</h1>
-<a href="{% url 'signup' %}">Signup</a>
 
+<div class="homepage">
+    <h1>Welcome to YOUR next success!</h1>
+    <a class="login" href="{% url 'login' %}">Login</a>
+    <h1>New Here?</h1>
+    <a class="signup" href="{% url 'signup' %}">Signup</a>
+</div>
 
 
 
