@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block title %}
+Confirm_Delete | Get It Done!
+{% endblock %}
+
+
+{% block content %}
+
+
+<form method="POST">
+
+    {% csrf_token %}
+    <H4>Are you sure you want to delete this task? '{{task}}' </H4>
+    <input type="submit" value="Yes - Delete" />
+    <button>
+        <a href="{% url 'tasks' %}"> No - Cancel</a>
+    </button>
+
+</form>
+
+{% endblock %}
