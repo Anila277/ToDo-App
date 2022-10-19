@@ -1,4 +1,5 @@
 from email.policy import default
+from turtle import title
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -23,3 +24,9 @@ class Task(models.Model):
 
     class Meta:
         ordering = ['complete']
+
+class Photo(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField(null=True, blank=True)
+    url = models.CharField(max_length=200)
+    created = models.DateTimeField(auto_now_add=True)
