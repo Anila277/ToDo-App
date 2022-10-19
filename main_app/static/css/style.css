@@ -132,6 +132,7 @@ tr:nth-child(even) {
 .search {
     width: 24vh;
     height: 25px;
+    border: 1px solid rgb(16, 118, 16);
 }
 
 .searchbtn {
@@ -139,6 +140,8 @@ tr:nth-child(even) {
     height: 30px;
     width: 15vh;
     font-size: 18px;
+    color: #f2f2f2;
+    background-color: rgb(1, 186, 1);
 }
 
 .signuppage {
@@ -149,7 +152,9 @@ tr:nth-child(even) {
     margin-bottom: 10px;
     height: 30px;
     width: 15vh;
-    font-size: 18px;
-    color: rgb(0, 0, 255);
+    font-size: 19px;
+    color: #f2f2f2;
+    background-color: rgb(25, 100, 7);
     border: 2px solid blue;
+    cursor: pointer;
 }
